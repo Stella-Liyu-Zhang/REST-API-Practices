@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>REST Practice</title>
+
+		<style>
+			label {
+				display: block;
+				margin: 0 0 10px 0;
+			}
+
+			output {
+				border: 1px solid black;
+				display: block;
+				height: 200px;
+				overflow: scroll;
+				width: 400px;
+			}
+
+			.hide {
+				display: none;
+			}
+		</style>
+
+		<!-- Scripts -->
+		<script src="script.js" type="module"></script>
+	</head>
+	<body>
+		<h1>JavaScript Practice</h1>
+		<form action="">
+			<label for="id"
+				>ID:
+				<input type="number" id="id" name="id" />
+			</label>
+			<label for="title"
+				>Title:
+				<input type="text" id="title" name="title" />
+			</label>
+			<label for="author"
+				>Author:
+				<input type="text" id="author" name="author" />
+			</label>
+			<label for="httpMethod">
+				HTTP Method:
+				<select name="httpMethod" id="httpMethod">
+					<option value="get">GET</option>
+					<option value="post">POST</option>
+					<option value="put">PUT</option>
+					<option value="delete">DELETE</option>
+				</select>
+			</label>
+			<button type="submit">Submit</button>
+		</form>
+		<code>
+			<pre><output></output></pre>
+		</code>
+	</body>
+</html>
