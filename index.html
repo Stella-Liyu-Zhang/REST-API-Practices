@@ -14,11 +14,11 @@
 		<form action="/">
 			<label for="id"
 				>ID:
-				<input type="number" id="id" name="id" />
+				<input type="number" id="id" name="id" value=""/>
 			</label>
 			<label for="title"
 				>Title:
-				<input type="text" id="title" name="title" />
+				<input type="text" id="title" name="title" value=""/>
 			</label>
 			<label for="author"
 				>Author:
@@ -26,11 +26,11 @@
 			</label>
 			<label for="httpMethod">
 				HTTP Method:
-				<select name="httpMethod" id="httpMethod">
-					<option value="get">GET</option>
-					<option value="post">POST</option>
-					<option value="put">PUT</option>
-					<option value="delete">DELETE</option>
+				<select name="httpMethod" id="httpMethod" onchange="toggle_visibility();">
+					<option value="get" onclick="show(false)">GET</option>
+					<option value="post" onclick="show(true)">POST</option>
+					<option value="put" onclick="show(true)">PUT</option>
+					<option value="delete" onclick="show(false)">DELETE</option>
 				</select>
 			</label>
 			<button type="submit">Submit</button>
@@ -38,6 +38,7 @@
 		<code>
 			<pre><output></output></pre>
 		</code>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</body>
 </html>
 

@@ -26,6 +26,7 @@ function bindEvents() {
 		let method = ELEMS.method.value;
 		//if it's get or delete, we will need the "id" of the JSON Object
 		if (method == 'get' || method == 'delete') {
+			//for instance, http://localhost:3000/posts/delete
 			let url = `http://localhost:3000/posts/${ELEMS.id.value}`;
 			let response = await fetch(url, { method: method });
 			let data = await response.json();
@@ -47,9 +48,23 @@ function bindEvents() {
 	});
 }
 
+function toggle_visibility() {
+	$('#httpMethod').on('change', function() {
+		if($.trim(this.value) === 'get' || $.trim(this.value) === 'delete'){
+			$('#title').val('').prop('disabled', true).closest('p').hide();
+			$('#author').val('').prop('disabled', true).closest('p').hide();
+		}else{
+			$('#title').prop('disabled', false).closest('p').show();
+			$('#author').prop('disabled', false).closest('p').show();
+		}
+	});
+}
+
+
 function init() {
 	queryElements();
 	bindEvents();
+	toggle_visibility();
 }
 
 init();
