@@ -136,3 +136,35 @@ So for example, our shopping list could have input forms and buttons that allow 
 You might however also want to just update the view to display the data in a different format, e.g., change the item order to alphabetical, or lowest to highest price. In this case the controller could handle this directly without needing to update the model.
 
 
+## Some JS notes that I have
+
+- Document.querySelector()
+
+The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+
+> Note: The matching is done using depth-first pre-order traversal of the document's nodes starting with the first element in the document's markup and iterating through sequential nodes by order of the number of child nodes.
+
+- form.addEventListener
+The submit event fires when a <form> is submitted.
+
+- Object.keys()
+The Object.keys() function returns an array of the object's own enumerable properties. You can then iterate over each key in the object using forEach().
+> Example:
+```js
+const obj = {
+  name: 'Jean-Luc Picard',
+  rank: 'Captain'
+};
+
+// Prints "name Jean-Luc Picard" 
+// "rank Captain"
+Object.keys(obj).forEach(key => {
+  console.log(key, obj[key]);
+});
+```
+
+
+- 
+
+
+
