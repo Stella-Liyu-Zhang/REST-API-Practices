@@ -31,15 +31,16 @@ function bindEvents() {
 			let response = await fetch(url, { method: method });
 			let data = await response.json();
 			ELEMS.output.innerHTML = JSON.stringify(data, null, 2);
-		} else {
+		}else {
 			let url = 'http://localhost:3000/posts';
-			if (method == 'PUT') url += `/${ELEMS.id.value}`;
+			if (method == 'put') url += `/${ELEMS.id.value}`;
 			fetch(url, {
 				method: method,
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
+					id: ELEMS.id.value,
 					title: ELEMS.title.value,
 					author: ELEMS.author.value,
 				}),

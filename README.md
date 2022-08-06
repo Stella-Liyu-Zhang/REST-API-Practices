@@ -164,7 +164,9 @@ Object.keys(obj).forEach(key => {
 ```
 
 
-- 
+- Extra note about PUT request method:
+
+
 
 
 
