@@ -31,10 +31,10 @@ function bindEvents() {
 			let response = await fetch(url, { method: method });
 			let data = await response.json();
 			ELEMS.output.innerHTML = JSON.stringify(data, null, 2);
-		}else {
+		} else {
 			let url = 'http://localhost:3000/posts';
 			if (method == 'put') url += `/${ELEMS.id.value}`;
-			fetch(url, {
+			let response = await fetch(url, {
 				method: method,
 				headers: {
 					'Content-Type': 'application/json',
@@ -45,18 +45,36 @@ function bindEvents() {
 					author: ELEMS.author.value,
 				}),
 			});
+			let data = await response.json();
+			ELEMS.output.innerHTML = JSON.stringify(data, null, 2);
 		}
 	});
 }
 
 function toggle_visibility() {
-	$('#httpMethod').on('change', function() {
-		if($.trim(this.value) === 'get' || $.trim(this.value) === 'delete'){
-			$('#title').val('').prop('disabled', true).closest('p').hide();
-			$('#author').val('').prop('disabled', true).closest('p').hide();
-		}else{
-			$('#title').prop('disabled', false).closest('p').show();
-			$('#author').prop('disabled', false).closest('p').show();
+	// $('#httpMethod').on('change', function() {
+	// 	if($.trim(this.value) === 'get' || $.trim(this.value) === 'delete'){
+	// 		$('#title').val('').prop('disabled', true).closest('p').hide();
+	// 		$('#author').val('').prop('disabled', true).closest('p').hide();
+	// 	}else{
+	// 		$('#title').prop('disabled', false).closest('p').show();
+	// 		$('#author').prop('disabled', false).closest('p').show();
+	// 	}
+	// });
+
+	ELEMS.method.addEventListener('change', () => {
+		if (ELEMS.method.value === 'get' || ELEMS.method.value === 'delete') {
+			ELEMS.id.removeAttribute('disabled');
+			ELEMS.title.setAttribute('disabled', true);
+			ELEMS.author.setAttribute('disabled', true);
+		} else if (ELEMS.method.value === 'post') {
+			ELEMS.id.setAttribute('disabled', true);
+			ELEMS.title.removeAttribute('disabled');
+			ELEMS.author.removeAttribute('disabled');
+		} else {
+			ELEMS.id.removeAttribute('disabled');
+			ELEMS.title.removeAttribute('disabled');
+			ELEMS.author.removeAttribute('disabled');
 		}
 	});
 }

@@ -2,13 +2,13 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "test",
+      "author": "test1"
     },
     {
-      "id": "4",
-      "title": "fff",
-      "author": "ffffff"
+      "id": "RpPc2as",
+      "title": "test",
+      "author": "test"
     }
   ],
   "comments": [
